@@ -6,12 +6,14 @@ public class SecondModelRecommend {
     private String star_text;
     private String price;
     private String kilo;
+    private boolean isNew;
 
-    public SecondModelRecommend(int image, String star_text, String price, String kilo) {
+    public SecondModelRecommend(int image, String star_text, String price, String kilo, boolean isNew) {
         this.image = image;
         this.star_text = star_text;
         this.price = price;
         this.kilo = kilo;
+        this.isNew = isNew;
     }
 
     public int getImage() {
@@ -44,5 +46,13 @@ public class SecondModelRecommend {
 
     public void setKilo(String kilo) {
         this.kilo = kilo;
+    }
+
+    public boolean isNew() {
+        return isNew;
+    }
+
+    public void setNew(boolean aNew) {
+        isNew = aNew;
     }
 }

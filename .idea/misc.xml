@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/drawable/apple.xml" value="0.18981481481481483" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/drawable/button_back.xml" value="0.19948717948717948" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/drawable/button_ripple.xml" value="0.19814814814814816" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/drawable/card_back_tovsiye.xml" value="0.18703703703703703" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/drawable/no_border.xml" value="0.19948717948717948" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/activity_detail.xml" value="0.33" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/activity_main.xml" value="0.18645833333333334" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/activity_second.xml" value="0.33" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/bottom_sheet_sort.xml" value="0.33" />

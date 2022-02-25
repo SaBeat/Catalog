@@ -33,6 +33,7 @@ public class SecondActivity extends AppCompatActivity {
         linearBaha = findViewById(R.id.linear_sortlama);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Second Activity");
 
         linearBaha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,11 +50,11 @@ public class SecondActivity extends AppCompatActivity {
 
     private void fillRecommedation(){
         secondModels = new ArrayList<>();
-        secondModels.add(new SecondModelRecommend(R.drawable.apple,"4.5","575.00 $","za kor 2kq"));
-        secondModels.add(new SecondModelRecommend(R.drawable.durian,"4.0","375.00 $","za kor 3kq"));
-        secondModels.add(new SecondModelRecommend(R.drawable.kiwi,"3.7","265.00 $","za kor 4kq"));
-        secondModels.add(new SecondModelRecommend(R.drawable.lemon,"4.9","475.00 $","za kor 5kq"));
-        secondModels.add(new SecondModelRecommend(R.drawable.strawberry,"4.1","775.00 $","za kor 6kq"));
+        secondModels.add(new SecondModelRecommend(R.drawable.apple,"4.5","575.00 $","za kor 2kq",false));
+        secondModels.add(new SecondModelRecommend(R.drawable.durian,"4.0","375.00 $","za kor 3kq",true));
+        secondModels.add(new SecondModelRecommend(R.drawable.kiwi,"3.7","265.00 $","za kor 4kq",true));
+        secondModels.add(new SecondModelRecommend(R.drawable.lemon,"4.9","475.00 $","za kor 5kq",false));
+        secondModels.add(new SecondModelRecommend(R.drawable.strawberry,"4.1","775.00 $","za kor 6kq",false));
 
         setRecyclerView_tovsiye(secondModels);
     }

@@ -43,7 +43,7 @@ public class SecondAdapterShow extends RecyclerView.Adapter<SecondAdapterShow.My
             image = itemView.findViewById(R.id.image_show);
             star_point = itemView.findViewById(R.id.text_star_point_show);
             price = itemView.findViewById(R.id.text_price_show);
-            _new = itemView.findViewById(R.id.text_new);
+            _new = itemView.findViewById(R.id.text_detail_new);
             kilo = itemView.findViewById(R.id.text_kilo_show);
             detail = itemView.findViewById(R.id.text_content_show);
             cardView_new = itemView.findViewById(R.id.cardView_show);
@@ -61,7 +61,9 @@ public class SecondAdapterShow extends RecyclerView.Adapter<SecondAdapterShow.My
     public void onBindViewHolder(@NonNull SecondAdapterShow.MyViewHolder holder, int position) {
         SecondModelShow model = secondModels.get(position);
 
-        Glide.with(context).load(model.getImage()).into(holder.image);
+        Glide.with(context).load(model.getImage())
+                .centerCrop()
+                .into(holder.image);
         holder.star_point.setText(String.valueOf(model.getStar_point()));
         if(model.getStar_point()>3.5){
             holder.star_point.setTextColor(Color.GREEN);

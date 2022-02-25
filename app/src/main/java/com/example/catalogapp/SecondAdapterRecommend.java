@@ -1,6 +1,7 @@
 package com.example.catalogapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -30,6 +32,7 @@ public class SecondAdapterRecommend extends RecyclerView.Adapter<SecondAdapterRe
 
         ImageView image;
         TextView star_point,price,kilo;
+        CardView cardView_recommend;
         Button btn_add_recommend;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -38,6 +41,7 @@ public class SecondAdapterRecommend extends RecyclerView.Adapter<SecondAdapterRe
             price = itemView.findViewById(R.id.text_price);
             kilo = itemView.findViewById(R.id.text_kilo);
             btn_add_recommend = itemView.findViewById(R.id.btn_add);
+            cardView_recommend = itemView.findViewById(R.id.cardView_recommend);
         }
     }
 
@@ -51,14 +55,34 @@ public class SecondAdapterRecommend extends RecyclerView.Adapter<SecondAdapterRe
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
          SecondModelRecommend model = secondModels.get(position);
 
-        Glide.with(context).load(model.getImage()).into(holder.image);
+        Glide.with(context).load(model.getImage())
+                .centerCrop()
+                .into(holder.image);
         holder.star_point.setText(model.getStar_text());
         holder.kilo.setText(model.getKilo());
         holder.price.setText(model.getPrice());
+
+        if(model.isNew()){
+            holder.cardView_recommend.setVisibility(View.VISIBLE);
+        }else{
+            holder.cardView_recommend.setVisibility(View.INVISIBLE);
+        }
+
         holder.btn_add_recommend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "Button recommendation add clicked : "+holder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,DetailActivity.class);
+                intent.putExtra("image",model.getImage());
+                intent.putExtra("star_point",model.getStar_text());
+                intent.putExtra("isNew",model.isNew());
+                context.startActivity(intent);
             }
         });
     }

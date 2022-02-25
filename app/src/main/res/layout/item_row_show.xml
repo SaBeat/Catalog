@@ -7,7 +7,7 @@
     android:layout_margin="2dp">
 
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView2"
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -21,11 +21,13 @@
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-    </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -96,7 +98,9 @@
         app:layout_constraintStart_toStartOf="@+id/text_price_show"
         app:layout_constraintTop_toBottomOf="@+id/text_price_show" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
+        android:backgroundTint="@color/white"
+        android:background="@drawable/button_ripple"
         android:id="@+id/btn_add_show"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -120,13 +124,13 @@
 
 
         <TextView
-            android:id="@+id/text_new"
+            android:id="@+id/text_detail_new"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="NEW"
             android:textColor="#007500"
-            android:textSize="10sp"
+            android:textSize="9sp"
             android:textStyle="bold" />
 
 
