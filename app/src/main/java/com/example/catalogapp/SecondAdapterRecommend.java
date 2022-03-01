@@ -58,7 +58,7 @@ public class SecondAdapterRecommend extends RecyclerView.Adapter<SecondAdapterRe
         Glide.with(context).load(model.getImage())
                 .centerCrop()
                 .into(holder.image);
-        holder.star_point.setText(model.getStar_text());
+        holder.star_point.setText(String.valueOf(model.getStar_text()));
         holder.kilo.setText(model.getKilo());
         holder.price.setText(model.getPrice());
 
@@ -80,8 +80,9 @@ public class SecondAdapterRecommend extends RecyclerView.Adapter<SecondAdapterRe
             public void onClick(View v) {
                 Intent intent = new Intent(context,DetailActivity.class);
                 intent.putExtra("image",model.getImage());
-                intent.putExtra("star_point",model.getStar_text());
+                intent.putExtra("price",model.getPrice());
                 intent.putExtra("isNew",model.isNew());
+                intent.putExtra("rating",model.getStar_text());
                 context.startActivity(intent);
             }
         });

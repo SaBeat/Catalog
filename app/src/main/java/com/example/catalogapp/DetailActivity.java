@@ -7,10 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
 
+    RatingBar ratingBar;
+    TextView text_rating;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,21 +22,32 @@ public class DetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Detail");
 
+        ratingBar = findViewById(R.id.ratingBar);
+        text_rating = findViewById(R.id.text_rating);
+
+//        Float _text_rating = ratingBar.getRating();
+//        int star_size = ratingBar.getNumStars();
+
         Intent intent = getIntent();
-        String star_point = intent.getStringExtra("star_point");
+        String _price = intent.getStringExtra("price");
         boolean isNew = intent.getBooleanExtra("isNew",false);
         int image = intent.getIntExtra("image",0);
 
-        TextView star = findViewById(R.id.textdetail_price);
+        text_rating.setText(String.valueOf(intent.getFloatExtra("rating",0.0f)));
+        ratingBar.setRating(intent.getFloatExtra("rating",0.0f));
+
+        TextView price = findViewById(R.id.textdetail_price);
         CardView _new = findViewById(R.id.cardView_detail_new);
         ImageView imageView = findViewById(R.id.image_detail);
 
-        star.setText(star_point);
+        price.setText(_price);
         imageView.setImageResource(image);
+
         if(isNew){
             _new.setVisibility(View.VISIBLE);
         }else{
             _new.setVisibility(View.INVISIBLE);
         }
+
     }
 }
