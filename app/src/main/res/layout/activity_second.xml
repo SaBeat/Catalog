@@ -113,9 +113,9 @@
         app:cardBackgroundColor="#C3C1C1" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_show"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/card_for_design"
-        android:id="@+id/recycler_show"/>
+        android:layout_below="@+id/card_for_design" />
 
 </RelativeLayout>

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +27,8 @@ import java.util.ArrayList;
 public class SecondAdapterShow extends RecyclerView.Adapter<SecondAdapterShow.MyViewHolder> implements Filterable {
 
     Context context;
-    int index =0;
+    public int firstTimeIndex = 0;
+    public int index =-1;
     ArrayList<SecondModelShow> secondModels;
     ArrayList<SecondModelShow> FullList;
     private final ViewBinderHelper binderHelper = new ViewBinderHelper();
@@ -51,6 +53,7 @@ public class SecondAdapterShow extends RecyclerView.Adapter<SecondAdapterShow.My
         CardView cardView_new,add_favorite;
         Button btn_add_show;
         SwipeRevealLayout swipeRevealLayout;
+        FrameLayout frame_show;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image_show);
@@ -64,6 +67,7 @@ public class SecondAdapterShow extends RecyclerView.Adapter<SecondAdapterShow.My
             btn_add_show = itemView.findViewById(R.id.btn_add_show);
             swipeRevealLayout = itemView.findViewById(R.id.swipeRevealLayout);
             add_favorite = itemView.findViewById(R.id.add_favorite);
+            frame_show = itemView.findViewById(R.id.frame_show);
         }
 
     }
@@ -86,7 +90,7 @@ public class SecondAdapterShow extends RecyclerView.Adapter<SecondAdapterShow.My
                 .into(holder.image);
         holder.star_point.setText(String.valueOf(model.getStar_point()));
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.frame_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,DetailActivity.class);

@@ -136,26 +136,42 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="210dp"
+            android:layout_height="220dp"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_detail_title">
 
-            <ImageView
-                android:id="@+id/image_detail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="80dp"
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp"
                 android:layout_marginBottom="8dp"
                 android:scaleType="fitXY"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/dot1"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
+
+            <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+                android:id="@+id/dot1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:padding="5dp"
+                app:dotsColor="@android:color/holo_green_light"
+                app:dotsSize="11dp"
+                app:dotsSpacing="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/viewPager"
+                app:layout_constraintStart_toStartOf="@+id/viewPager"
+                app:progressMode="true"
+                app:selectedDotColor="@android:color/holo_green_dark" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.cardview.widget.CardView
@@ -237,13 +253,43 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_tovsiye_olunan"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:cardBackgroundColor="#C3C1C1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView4">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:text="Tövsiyə olunanlar"
+                android:textColor="@color/black"
+                android:textFontWeight="@integer/material_motion_duration_medium_2"
+                android:textSize="18sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_detail_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_tovsiye_olunan" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" >
+            app:layout_constraintTop_toBottomOf="@+id/textView6">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -273,11 +319,11 @@
 
                 <RatingBar
                     android:id="@+id/ratingBar"
-                    android:isIndicator="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:numStars="5"
                     android:layout_marginEnd="8dp"
+                    android:isIndicator="true"
+                    android:numStars="5"
                     app:layout_constraintBottom_toBottomOf="@+id/text_rating"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/text_rating" />

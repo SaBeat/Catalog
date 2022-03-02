@@ -2,6 +2,9 @@ package com.example.catalogapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,14 +13,36 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
+import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
+import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
+
+import java.util.ArrayList;
+
 public class DetailActivity extends AppCompatActivity {
 
     RatingBar ratingBar;
     TextView text_rating;
+
+    ViewPager viewPager;
+    WormDotsIndicator dot1;
+    ViewPagerAdapter viewAdapter;
+    SecondAdapterRecommend adapterRecommend;
+    ArrayList<SecondModelRecommend>secondModels;
+    RecyclerView rv_detail_recommend;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        fillRecommedation();
+
+        rv_detail_recommend = findViewById(R.id.rv_detail_recommend);
+        viewPager=findViewById(R.id.viewPager);
+        dot1=findViewById(R.id.dot1);
+
+        viewAdapter=new ViewPagerAdapter(this);
+        viewPager.setAdapter(viewAdapter);
+        dot1.setViewPager(viewPager);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Detail");
@@ -38,10 +63,10 @@ public class DetailActivity extends AppCompatActivity {
 
         TextView price = findViewById(R.id.textdetail_price);
         CardView _new = findViewById(R.id.cardView_detail_new);
-        ImageView imageView = findViewById(R.id.image_detail);
+//        ImageView imageView = findViewById(R.id.viewPager);
 
         price.setText(_price);
-        imageView.setImageResource(image);
+//        imageView.setImageResource(image);
 
         if(isNew){
             _new.setVisibility(View.VISIBLE);
@@ -49,5 +74,24 @@ public class DetailActivity extends AppCompatActivity {
             _new.setVisibility(View.INVISIBLE);
         }
 
+    }
+
+    private void fillRecommedation() {
+        secondModels = new ArrayList<>();
+        secondModels.add(new SecondModelRecommend(R.drawable.apple, 4.5f, "575.00 $", "za kor 2kq", false));
+        secondModels.add(new SecondModelRecommend(R.drawable.durian, 4.0f, "375.00 $", "za kor 3kq", true));
+        secondModels.add(new SecondModelRecommend(R.drawable.kiwi, 3.7f, "265.00 $", "za kor 4kq", true));
+        secondModels.add(new SecondModelRecommend(R.drawable.lemon, 4.9f, "475.00 $", "za kor 5kq", false));
+        secondModels.add(new SecondModelRecommend(R.drawable.strawberry, 4.1f, "775.00 $", "za kor 6kq", false));
+
+        setRecycler(secondModels);
+    }
+
+    private void setRecycler(ArrayList<SecondModelRecommend> list){
+        rv_detail_recommend = findViewById(R.id.rv_detail_recommend);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        rv_detail_recommend.setLayoutManager(layoutManager);
+        adapterRecommend = new SecondAdapterRecommend(this, list);
+        rv_detail_recommend.setAdapter(adapterRecommend);
     }
 }

@@ -36,6 +36,13 @@ public class SecondActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Second Activity");
 
+        openBottomSheetDialogs();
+
+        fillRecommedation();
+        fillShow();
+    }
+
+    private void openBottomSheetDialogs(){
         linearBaha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,11 +56,7 @@ public class SecondActivity extends AppCompatActivity {
                 showBottomSheetDialogFilter();
             }
         });
-
-        fillRecommedation();
-        fillShow();
     }
-
 
     private void fillRecommedation() {
         secondModels = new ArrayList<>();
