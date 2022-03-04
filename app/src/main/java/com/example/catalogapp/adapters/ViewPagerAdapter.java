@@ -1,4 +1,4 @@
-package com.example.catalogapp;
+package com.example.catalogapp.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.catalogapp.R;
 
 public class ViewPagerAdapter extends PagerAdapter {
     private Context context;

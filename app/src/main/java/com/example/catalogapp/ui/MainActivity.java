@@ -1,4 +1,4 @@
-package com.example.catalogapp;
+package com.example.catalogapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -9,6 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.catalogapp.R;
+import com.example.catalogapp.adapters.MainAdapter;
+import com.example.catalogapp.model.TitleModel;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.catalogapp;
+package com.example.catalogapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -13,6 +13,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.catalogapp.R;
+import com.example.catalogapp.adapters.SecondAdapterRecommend;
+import com.example.catalogapp.adapters.SecondAdapterShow;
+import com.example.catalogapp.model.SecondModelRecommend;
+import com.example.catalogapp.model.SecondModelShow;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;

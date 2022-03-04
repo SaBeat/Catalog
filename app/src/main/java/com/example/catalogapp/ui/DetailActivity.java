@@ -1,4 +1,4 @@
-package com.example.catalogapp;
+package com.example.catalogapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -10,15 +10,15 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.catalogapp.R;
+import com.example.catalogapp.adapters.SecondAdapterRecommend;
+import com.example.catalogapp.adapters.ViewPagerAdapter;
+import com.example.catalogapp.model.SecondModelRecommend;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
-import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
 import java.util.ArrayList;

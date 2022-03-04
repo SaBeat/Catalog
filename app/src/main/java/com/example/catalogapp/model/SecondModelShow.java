@@ -1,4 +1,4 @@
-package com.example.catalogapp;
+package com.example.catalogapp.model;
 
 public class SecondModelShow {
     private int image;

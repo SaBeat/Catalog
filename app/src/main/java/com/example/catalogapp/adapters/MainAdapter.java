@@ -1,6 +1,5 @@
-package com.example.catalogapp;
+package com.example.catalogapp.adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -15,6 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.catalogapp.R;
+import com.example.catalogapp.ui.SecondActivity;
+import com.example.catalogapp.model.TitleModel;
 
 import java.util.ArrayList;
 
@@ -49,7 +51,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
     @NonNull
     @Override
     public MainAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row,parent,false));
+        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row_main,parent,false));
     }
 
     @Override

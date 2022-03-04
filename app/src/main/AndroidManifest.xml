@@ -10,18 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CatalogApp">
         <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".DetailActivity"
+            android:name=".ui.DetailActivity"
             android:exported="false"
-            android:parentActivityName=".SecondActivity" />
+            android:parentActivityName=".ui.SecondActivity" />
         <activity
-            android:name=".SecondActivity"
+            android:name=".ui.SecondActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ui.MainActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

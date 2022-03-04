@@ -1,4 +1,4 @@
-package com.example.catalogapp;
+package com.example.catalogapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +21,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.chauthai.swipereveallayout.ViewBinderHelper;
+import com.example.catalogapp.ui.DetailActivity;
+import com.example.catalogapp.R;
+import com.example.catalogapp.model.SecondModelShow;
 
 import java.util.ArrayList;
 
@@ -93,7 +96,7 @@ public class SecondAdapterShow extends RecyclerView.Adapter<SecondAdapterShow.My
         holder.frame_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,DetailActivity.class);
+                Intent intent = new Intent(context, DetailActivity.class);
                 intent.putExtra("image",model.getImage());
                 intent.putExtra("price",model.getPrice());
                 intent.putExtra("isNew",model.is_new());
