@@ -128,6 +128,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "baha clicked", Toast.LENGTH_SHORT).show();
+                bottomSheetDialog.cancel();
             }
         });
 
@@ -135,6 +136,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "ucuz clicked", Toast.LENGTH_SHORT).show();
+                bottomSheetDialog.cancel();
             }
         });
 
@@ -154,6 +156,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Filter baha clicked", Toast.LENGTH_SHORT).show();
+                bottomSheetDialog.cancel();
             }
         });
 
@@ -161,6 +164,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Filter ucuz clicked", Toast.LENGTH_SHORT).show();
+                bottomSheetDialog.cancel();
             }
         });
 
@@ -168,6 +172,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Filter any clicked", Toast.LENGTH_SHORT).show();
+                bottomSheetDialog.cancel();
             }
         });
 

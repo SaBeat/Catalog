@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CatalogApp">
         <activity
-            android:name=".DetailActivity"
-            android:parentActivityName=".SecondActivity"
+            android:name=".MainActivity2"
             android:exported="false" />
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false"
+            android:parentActivityName=".SecondActivity" />
         <activity
             android:name=".SecondActivity"
             android:exported="false"
