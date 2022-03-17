@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:id="@+id/container_home"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.HomeFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView

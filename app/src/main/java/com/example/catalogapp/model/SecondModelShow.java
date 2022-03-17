@@ -3,12 +3,12 @@ package com.example.catalogapp.model;
 public class SecondModelShow {
     private int image;
     private boolean _new;
-    private float star_point;
+    private double star_point;
     private String detail;
     private String price;
     private String kilo;
 
-    public SecondModelShow(int image, boolean _new, float star_point, String detail, String price, String kilo) {
+    public SecondModelShow(int image, boolean _new, double star_point, String detail, String price, String kilo) {
         this.image = image;
         this._new = _new;
         this.star_point = star_point;
@@ -16,6 +16,20 @@ public class SecondModelShow {
         this.price = price;
         this.kilo = kilo;
     }
+
+    public SecondModelShow(boolean _new, double star_point, String detail, String price, String kilo) {
+        this._new = _new;
+        this.star_point = star_point;
+        this.detail = detail;
+        this.price = price;
+        this.kilo = kilo;
+    }
+
+//    public SecondModelShow(String string, String detail, String price, String kilo, double aDouble) {
+//        this.detail = detail;
+//        this.price = price;
+//        this.kilo = kilo;
+//    }
 
     public int getImage() {
         return image;
@@ -33,11 +47,11 @@ public class SecondModelShow {
         this._new = _new;
     }
 
-    public float getStar_point() {
+    public double getStar_point() {
         return star_point;
     }
 
-    public void setStar_point(float star_point) {
+    public void setStar_point(double star_point) {
         this.star_point = star_point;
     }
 

@@ -11,12 +11,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.catalogapp.R;
 import com.example.catalogapp.ui.SecondActivity;
 import com.example.catalogapp.model.TitleModel;
+import com.example.catalogapp.ui.SecondFragment;
 
 import java.util.ArrayList;
 
@@ -25,6 +28,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
     Context context;
     ArrayList<TitleModel> titleModels;
     ArrayList<TitleModel> FullList;
+    private ItemClickListener clickListener;
 
     public MainAdapter(Context context, ArrayList<TitleModel> titleModels) {
         this.context = context;
@@ -32,12 +36,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
         FullList = new ArrayList<>(titleModels);
     }
 
+    public void setClickListener(ItemClickListener itemClickListener) {
+        this.clickListener = itemClickListener;
+    }
+
     @Override
     public Filter getFilter() {
         return Searched_Filter;
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView text_name;
         ImageView image_main,image_right;
         public MyViewHolder(@NonNull View itemView) {
@@ -45,6 +53,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
             text_name = itemView.findViewById(R.id.text_name);
             image_main = itemView.findViewById(R.id.image_main);
             image_right = itemView.findViewById(R.id.image_right);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (clickListener != null) clickListener.onClick(v, getAdapterPosition());
         }
     }
 
@@ -103,7 +117,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
             notifyDataSetChanged();
         }
     };
-
+    public interface ItemClickListener {
+        void onClick(View view, int position);
+    }
 }
+
 
 

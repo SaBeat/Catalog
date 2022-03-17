@@ -1,17 +1,21 @@
 package com.example.catalogapp.ui;
 
+import android.content.Intent;
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -23,10 +27,10 @@ import com.example.catalogapp.model.SecondModelRecommend;
 import com.example.catalogapp.model.SecondModelShow;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class SecondActivity extends AppCompatActivity {
+
+public class SecondFragment extends Fragment {
     RecyclerView recyclerView_tovsiye, recyclerview_show;
     SecondAdapterRecommend secondAdapter;
     SecondAdapterShow secondAdapterShow;
@@ -34,25 +38,30 @@ public class SecondActivity extends AppCompatActivity {
     ArrayList<SecondModelShow> modelShows;
     LinearLayout linearBaha, linearFilter;
     Button btn_add_show;
+    View view;
+
+    public SecondFragment() {
+        // Required empty public constructor
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
-        btn_add_show = findViewById(R.id.btn_add_show);
-        linearBaha = findViewById(R.id.linear_sortlama);
-        linearFilter = findViewById(R.id.linearFilter);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        view = inflater.inflate(R.layout.fragment_second, container, false);
+//        setHasOptionsMenu(true);
+        btn_add_show = view.findViewById(R.id.btn_add_show);
+        linearBaha = view.findViewById(R.id.linear_sortlama);
+        linearFilter = view.findViewById(R.id.linearFilter);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Second Activity");
         openBottomSheetDialogs();
 
         fillRecommedation();
         fillShow();
+
+        return view;
     }
-
-
-
 
     private void openBottomSheetDialogs(){
         linearBaha.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +74,7 @@ public class SecondActivity extends AppCompatActivity {
         linearFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SecondActivity.this,FilterActivity.class));
+                startActivity(new Intent(getContext(),FilterActivity.class));
             }
         });
     }
@@ -90,36 +99,36 @@ public class SecondActivity extends AppCompatActivity {
 
         modelShows.add(new SecondModelShow(R.drawable.lemon, false, 4.3f,
                 "Letraset sheets containing Lorem Ipsum passages, and more recently with desktop",
-                "178.00 $", "za kor . 3kq"));
+                "78.00 $", "za kor . 3kq"));
 
         modelShows.add(new SecondModelShow(R.drawable.kiwi, true, 3.1f,
                 "Letraset sheets containing Lorem Ipsum passages, and more recently with desktop",
-                "278.00 $", "za kor . 4kq"));
+                "78.00 $", "za kor . 4kq"));
 
         modelShows.add(new SecondModelShow(R.drawable.durian, false, 4.9f,
                 "Letraset sheets containing Lorem Ipsum passages, and more recently with desktop",
-                "378.00 $", "za kor . 5kq"));
+                "78.00 $", "za kor . 5kq"));
 
         modelShows.add(new SecondModelShow(R.drawable.apple, true, 2.5f,
                 "Letraset sheets containing Lorem Ipsum passages, and more recently with desktop",
-                "478.00 $", "za kor . 6kq"));
+                "78.00 $", "za kor . 6kq"));
 
         setRecyclerView_show(modelShows);
     }
 
     public void setRecyclerView_tovsiye(ArrayList<SecondModelRecommend> list) {
-        recyclerView_tovsiye = findViewById(R.id.recycler_tovsiye);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView_tovsiye = view.findViewById(R.id.recycler_tovsiye);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView_tovsiye.setLayoutManager(layoutManager);
-        secondAdapter = new SecondAdapterRecommend(this, list);
+        secondAdapter = new SecondAdapterRecommend(getContext(), list);
         recyclerView_tovsiye.setAdapter(secondAdapter);
     }
 
     public void setRecyclerView_show(ArrayList<SecondModelShow> list) {
-        recyclerview_show = findViewById(R.id.recycler_show);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        recyclerview_show = view.findViewById(R.id.recycler_show);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerview_show.setLayoutManager(layoutManager);
-        secondAdapterShow = new SecondAdapterShow(this, list);
+        secondAdapterShow = new SecondAdapterShow(getContext(), list);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerview_show.getContext(),
                 layoutManager.getOrientation());
@@ -130,7 +139,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private void showBottomSheetDialogSort() {
 
-        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getContext());
         bottomSheetDialog.setContentView(R.layout.bottom_sheet_sort);
 
         LinearLayout baha = bottomSheetDialog.findViewById(R.id.bahaLinearLayout);
@@ -139,7 +148,7 @@ public class SecondActivity extends AppCompatActivity {
         baha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "baha clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "baha clicked", Toast.LENGTH_SHORT).show();
                 bottomSheetDialog.cancel();
             }
         });
@@ -147,7 +156,7 @@ public class SecondActivity extends AppCompatActivity {
         ucuz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "ucuz clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "ucuz clicked", Toast.LENGTH_SHORT).show();
                 bottomSheetDialog.cancel();
             }
         });
@@ -155,10 +164,9 @@ public class SecondActivity extends AppCompatActivity {
         bottomSheetDialog.show();
     }
 
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_manu, menu);
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.second_activity_menu, menu);
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setQueryHint("Search for anything...");
@@ -175,21 +183,7 @@ public class SecondActivity extends AppCompatActivity {
                 return false;
             }
         });
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_favorite:
-                startActivity(new Intent(this,FavoriteActivity.class));
-                break;
-
-            case R.id.action_basket:
-                startActivity(new Intent(this,BasketActivity.class));
-                break;
-        }
-        return super.onOptionsItemSelected(item);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
 }

@@ -9,19 +9,30 @@
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/drawable/card_back_tovsiye.xml" value="0.18703703703703703" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/drawable/ic_favorite_white.xml" value="0.18981481481481483" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/drawable/no_border.xml" value="0.19948717948717948" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/activity_basket.xml" value="0.18645833333333334" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/activity_detail.xml" value="0.22" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/activity_favorite.xml" value="0.18645833333333334" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/activity_filter.xml" value="0.18645833333333334" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/activity_home.xml" value="0.18645833333333334" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/activity_main.xml" value="0.18645833333333334" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/activity_main2.xml" value="0.18645833333333334" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/activity_second.xml" value="0.33" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/bottom_sheet_filter.xml" value="0.18645833333333334" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/bottom_sheet_sort.xml" value="0.33" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/detail_recycler.xml" value="0.25" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/fragment_basket.xml" value="0.18645833333333334" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/fragment_detail.xml" value="0.18645833333333334" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/fragment_favorite.xml" value="0.18645833333333334" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/fragment_home.xml" value="0.18645833333333334" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/fragment_second.xml" value="0.18645833333333334" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/item_row.xml" value="0.33" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/item_row_main.xml" value="0.33" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/item_row_show.xml" value="0.33" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/item_row_tovsiye.xml" value="0.5" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/layout/viewpager_row.xml" value="0.18645833333333334" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/menu/bottom_menu.xml" value="0.18645833333333334" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/menu/delete.xml" value="0.18645833333333334" />
+        <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/menu/main_manu.xml" value="0.18645833333333334" />
         <entry key="..\:/Projects-Android/CatalogApp/app/src/main/res/menu/menu.xml" value="0.18645833333333334" />
       </map>
     </option>

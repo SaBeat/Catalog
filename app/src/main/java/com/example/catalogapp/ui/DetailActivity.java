@@ -26,6 +26,7 @@ import java.util.ArrayList;
 public class DetailActivity extends AppCompatActivity {
 
     RatingBar ratingBar;
+    ImageButton imageButton;
     ConstraintLayout persistent_bottom_sheet;
     TextView text_rating;
     private BottomSheetBehavior mBottomSheetBehavior1;
@@ -55,17 +56,21 @@ public class DetailActivity extends AppCompatActivity {
         View bottomSheet = findViewById(R.id.bottom_sheet1);
         mBottomSheetBehavior1 = BottomSheetBehavior.from(bottomSheet);
 
+        imageButton = findViewById(R.id.btn_image_down);
+
         btnDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(mBottomSheetBehavior1.getState() != BottomSheetBehavior.STATE_EXPANDED) {
                     mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_EXPANDED);
                     persistent_bottom_sheet.setVisibility(View.VISIBLE);
+                    imageButton.setImageResource(R.drawable.ic_keyboard_arrow_up);
 
                 }
                 else {
                     mBottomSheetBehavior1.setState(BottomSheetBehavior.STATE_HIDDEN);
                     persistent_bottom_sheet.setVisibility(View.GONE);
+                    imageButton.setImageResource(R.drawable.ic_arrow_down);
                 }
             }
         });
